@@ -1,18 +1,8 @@
 from django.contrib import admin
-from django.urls import path
-from django.http import HttpResponse
+from django.urls import path, include
 
 
-def home(request):
-    return HttpResponse('Home Page')
-
-
-def studyroom(request):
-    return HttpResponse('Study Room')
-
-
-urlpatterns = {
+urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', home),
-    path('studyroom/', home)
-}
+    path('', include('base.urls')),
+]
